@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>HTML5 Canvas Structure</title>
+    <style media="screen"></style>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark">
+        <div class="navbar-collapse collapse w-100 order-1 order-md-0 dual-collapse2">
+            <div class="navbar-nav mr-auto">
+                <div class="icon left">
+                    <i id="clearAll" class="fa fa-eraser" aria-hidden="true"></i>
+                </div>
+                <div class="icon left">
+                    <i id="undo" class="fa fa-undo" aria-hidden="true"></i>
+                </div>
+                <div class="icon left">
+                    <i id="redo" class="fa fa-repeat" aria-hidden="true"></i>
+                </div>
+                <div class="icon left" id="save-btn">
+                    <i class="fa fa-floppy-o" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+        <div class="mx-auto order-0">
+            <a class="navbar-brand mx-auto">
+                <p>Drawio</p>
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".dual-collapse2">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+        </div>
+        <div class="navbar-collapse collapse w-100 order-3 dual-collapse2">
+            <div class="navbar-nav ml-auto">
+                <div class="fill">
+                    <label class="checkbox-inline">
+                        <input type="checkbox" value="" id="fillShapes"> Fill shapes
+                    </label>
+                </div>
+                <div class="icon rectangle" data-shape="rectangle">
+                    <i class="fa fa-square-o" aria-hidden="true"></i>
+                </div>
+                <div class="icon circle" data-shape="circle">
+                    <i class="fa fa-circle-o" aria-hidden="true"></i>
+                </div>
+                <div class="icon line" data-shape="line">
+                    <i class="fa fa-minus" aria-hidden="true"></i>
+                </div>
+                <div class="icon selected" data-shape="pencil">
+                    <i class="fa fa-pencil" aria-hidden="true"></i>
+                </div>
+                <div class="icon text" data-shape="text">
+                    <i class="fa fa-font" aria-hidden="true"></i>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="form-group col-md-1">
+        <form id="color-form">
+            <label for="color-picker">
+                Color
+                <input type="color" id="color-picker" />
+            </label>
+            <div class="line-width-slider">
+                <label for="line-size">
+                    Line Width
+                    <input type="range" id="line-size" min="1" max="20" value="10">
+                    <h3 id="valueOfRange">10</h3>
+                </label>
+            </div>
+            <h6>Saved drawings</h6>
+            <select class="list-of-files" id="all-files">
+            </select>
+            <div id="text-tool-settings" class="hidden">
+                <label for="text">
+                    <div></div>
+                    Here can you write some text
+                    <input type="text" id="textBox" />
+                </label>
+                <label>
+                    Fonts
+                    <select id="fontSelect">
+                        <option style="font-family: Arial, Helvetica, sans-serif">Arial</option>
+                        <option style="font-family: Times New Roman, Arial, sans-serif">Times New Roman</option>
+                        <option>Helvetica</option>
+                        <option>sans-serif</option>
+                    </select>
+                </label>
+                <label>
+                    Font Size
+                    <input type="range" id="font-size" min="10" max="100" value="45">
+                    <h3 id="valueOfFontSize">45</h3>
+                </label>
+        </form>
+    </div>
+    </div>
+    <div class="container">
+        <canvas id="my-canvas" width="800" height="600">
+            Not supported
+        </canvas>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js" charset="utf-8"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/spectrum/1.8.0/spectrum.min.js"></script>
+    <script src="shapes.js" charset="utf-8"></script>
+    <script src="drawio.js" charset="utf-8"></script>
+</body>
+
+</html>
